@@ -19,7 +19,7 @@ const searchBook= () =>{
     fetch(url)
     .then(res =>res.json())
     .then(data => {
-      
+      console.log(data.docs)
       displaySearchResult(data.docs)})
     
 }
@@ -57,8 +57,8 @@ const displaySearchResult= docs => {
   <ul class="list-group list-group-flush">
     
     <li class="list-group-item">Author : ${book.author_name }</li>
-    <li class="list-group-item">Publisher : ${book.publisher }</li>
-    <li class="list-group-item">Publish Date: ${book.first_publish_year}</li>
+    <li class="list-group-item">Ebook Access : ${book.ebook_access}</li>
+    <li class="list-group-item">Publish Year: ${book.first_publish_year}</li>
     
   </ul>
   
