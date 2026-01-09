@@ -18,7 +18,9 @@ const searchBook= () =>{
     const url=`https://openlibrary.org/search.json?q=${searchText}`
     fetch(url)
     .then(res =>res.json())
-    .then(data => displaySearchResult(data.docs))
+    .then(data => {
+      
+      displaySearchResult(data.docs)})
     
 }
 //  showing data
@@ -41,7 +43,7 @@ const displaySearchResult= docs => {
 
 
     docs.forEach(book => {
-       
+      
        const div=document.createElement('div');
        div.classList.add('col');
        div.innerHTML=`
@@ -56,7 +58,7 @@ const displaySearchResult= docs => {
     
     <li class="list-group-item">Author : ${book.author_name }</li>
     <li class="list-group-item">Publisher : ${book.publisher }</li>
-    <li class="list-group-item">Publish Date: ${book.publish_date[0]}</li>
+    <li class="list-group-item">Publish Date: ${book.first_publish_year}</li>
     
   </ul>
   
